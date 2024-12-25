@@ -171,6 +171,32 @@
                 transform: translate3d(0%, 0%, 0) rotate(0deg);
             }
         }
+
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+        .music-control button {
+            background-color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
     </style>
 </head>
 <body>
@@ -186,13 +212,47 @@
                 </div>
             </div>
         </div>
-    </div>
+        <div class="music-control">
+            <button id="toggleMusic" aria-label="Toggle Christmas Music">🎵</button>
+            <span id="musicStatus">Music: Off</span>
+        </div>
+    
+        <audio id="christmasMusic" loop>
+            <source src="jose-feliciano-feliz-navidad.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
 
     <footer>
         © 2024 Jules
     </footer>
 
     <script>
+        function toggleChristmasMusic() {
+            const music = document.getElementById('christmasMusic');
+            const musicStatus = document.getElementById('musicStatus');
+            const toggleButton = document.getElementById('toggleMusic');
+
+            if (music.paused) {
+                music.play();
+                musicStatus.textContent = 'Music: On';
+                toggleButton.textContent = '🔇';
+                toggleButton.setAttribute('aria-label', 'Mute Christmas Music');
+            } else {
+                music.pause();
+                musicStatus.textContent = 'Music: Off';
+                toggleButton.textContent = '🎵';
+                toggleButton.setAttribute('aria-label', 'Play Christmas Music');
+            }
+        }
+
+        // Set random greeting, create ornaments, garland, and setup music control when page loads
+        window.onload = function() {
+
+            const toggleButton = document.getElementById('toggleMusic');
+            toggleButton.addEventListener('click', toggleChristmasMusic);
+        }
+
+
         particlesJS("particles-js", 
             {
                 "particles": {
