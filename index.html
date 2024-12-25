@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maupay na pasko</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        body {
+            background: black;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+        
+    
+        .box {
+            position: relative;
+        }
+        
+        .box::before {
+            content: "";
+            width: 440px;
+            height: 440px;
+            background-color: transparent;
+            position: absolute;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+        
+        .box-body {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            margin-top: 123.3333333333px;
+            background-color: #cc231e;
+            border-bottom-left-radius: 5%;
+            border-bottom-right-radius: 5%;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(#762c2c, #ff0303);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .img {
+            opacity: 0;
+            transform: translateY(0%);
+            transition: all 0.5s;
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .box-body:hover {
+            cursor: pointer;
+            animation: box-body 1s forwards ease-in-out;
+        }
+        
+        .box-body:hover .img {
+            opacity: 1;
+            transform: translateY(-157px);
+        }
+        
+        .box-body:hover .box-lid {
+            animation: box-lid 1s forwards ease-in-out;
+        }
+        
+        .box-lid {
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 90%;
+            height: 40px;
+            background-color: #cc231e;
+            width: 220px;
+            border-radius: 5%;
+            box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .box-lid::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            background: linear-gradient(#ffefa0, #fff);
+        }
+        
+        .box-bowtie {
+            z-index: 1;
+            height: 100%;
+        }
+        
+        .box-bowtie::before, .box-bowtie::after {
+            content: "";
+            width: 83.3333333333px;
+            height: 83.3333333333px;
+            border: 16.6666666667px solid white;
+            border-radius: 50% 50% 0 50%;
+            position: absolute;
+            bottom: 99%;
+            z-index: -1;
+        }
+        
+        .box-bowtie::before {
+            left: 50%;
+            transform: translateX(-100%) skew(10deg, 10deg);
+        }
+        
+        .box-bowtie::after {
+            left: 50%;
+            transform: translateX(0%) rotate(90deg) skew(10deg, 10deg);
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+        
+        @keyframes box-lid {
+            0%, 42% {
+                transform: translate3d(-50%, 0%, 0) rotate(0deg);
+            }
+            60% {
+                transform: translate3d(-85%, -230%, 0) rotate(-25deg);
+            }
+            90%, 100% {
+                transform: translate3d(-119%, 225%, 0) rotate(-70deg);
+            }
+        }
+        
+        @keyframes box-body {
+            0% {
+                transform: translate3d(0%, 0%, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate3d(0%, 25%, 0) rotate(20deg);
+            }
+            50% {
+                transform: translate3d(0%, -15%, 0) rotate(0deg);
+            }
+            70% {
+                transform: translate3d(0%, 0%, 0) rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <div class="content">
+      
+        <div class="box">
+            <div class="box-body">
+                <img class="img" src="namamasko.png" alt="Gift">
+                <div class="box-lid">
+                    <div class="box-bowtie"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        © 2024 Jules
+    </footer>
+
+    <script>
+        particlesJS("particles-js", 
+            {
+                "particles": {
+                    "number": {
+                        "value": 200,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 1,
+                            "color": "#bdb0b0"
+                        },
+                        "polygon": {
+                            "nb_sides": 6
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 10,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 87.50820389411513,
+                            "size_min": 0.1,
+                            "sync": true
+                        }
+                    },
+                    "line_linked": {
+                        "enable": false,
+                        "distance": 500,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 2
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 6,
+                        "direction": "bottom",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "bubble"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "bubble": {
+                            "distance": 400,
+                            "size": 4,
+                            "duration": 0.3,
+                            "opacity": 1,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        }
+                    }
+                },
+                "retina_detect": true
+            }
+        );
+    </script>
+</body>
+</html>
